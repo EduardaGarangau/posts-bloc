@@ -13,10 +13,19 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  late PostBloc bloc;
+
   @override
   void initState() {
     super.initState();
-    BlocProvider.of<PostBloc>(context).add(LoadPostsEvent());
+    bloc = BlocProvider.of<PostBloc>(context);
+    bloc.add(LoadPostsEvent());
+  }
+
+  @override
+  void dispose() {
+    bloc.close();
+    super.dispose();
   }
 
   @override
