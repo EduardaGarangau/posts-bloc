@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
         onPressed: () {
           var post = const Post(
               id: 9, title: 'ValueNotifier', author: 'Eduarda Garangau');
-          BlocProvider.of<PostBloc>(context).add(AddPostEvent(post: post));
+          bloc.add(AddPostEvent(post: post));
         },
       ),
     );
